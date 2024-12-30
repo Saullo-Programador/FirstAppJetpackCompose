@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FirstApp</string>
+    <string name="TextTest">Kotlin é uma linguagem oficialmente suportada para o desenvolvimento de aplicativos Android. Desde maio de 2017</string>
+</resources>
