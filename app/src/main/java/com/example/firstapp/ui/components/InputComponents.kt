@@ -33,24 +33,26 @@ fun InputComponents(
     errorMessage: String? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
+    visualTransformation: VisualTransformation? = VisualTransformation.None,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null
 ) {
     Column(modifier = modifier) {
-        OutlinedTextField(
-            value = value,
-            onValueChange = onValueChange,
-            label = { Text(text = label) },
-            placeholder = { Text(text = placeholder) },
-            isError = isError,
-            modifier = Modifier.fillMaxWidth(),
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            visualTransformation = visualTransformation,
-            leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon
-        )
+        if (visualTransformation != null) {
+            OutlinedTextField(
+                value = value,
+                onValueChange = onValueChange,
+                label = { Text(text = label) },
+                placeholder = { Text(text = placeholder) },
+                isError = isError,
+                modifier = Modifier.fillMaxWidth(),
+                keyboardOptions = keyboardOptions,
+                keyboardActions = keyboardActions,
+                visualTransformation = visualTransformation,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon
+            )
+        }
         if (isError && errorMessage != null) {
             Text(
                 text = errorMessage,
